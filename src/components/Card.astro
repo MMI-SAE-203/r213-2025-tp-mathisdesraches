@@ -1,17 +1,16 @@
 ---
-const {adresse, favori, id, nbChambres, nbSdb, nomMaison, prix, surface, imgUrl} = Astro.props;
+const offre = Astro.props;
 ---
 
-<div x-data=`{favori: ${favori}}` x-bind:class="{ 'bg-green-100': favori }">
-    <h2>{adresse}</h2>
-    <p>{favori}</p>
-    <p>{id}</p>
-    <p>{nbChambres}</p>
-    <p>{nbSdb}</p>
-    <p>{nomMaison}</p>
-    <p>{prix}</p>
-    <p>{surface}</p>
-    <p>{imgUrl}</p>
-    {favori && <p>⭐️</p>}
-    <button x-on:click="favori = !favori">Favori</button>
+
+<li class="border rounded-lg p-4 shadow-lg bg-white transition-transform">
+    <div class="overflow-hidden rounded-md"></div>
+<div x-data=`{favori: false}` :class="{'bg-yellow-100': favori}">
+    <h2>{offre.nomMaison}</h2>
+    <img src={offre.img} alt={offre.imgAlt} class="w-64 h-64 object-cover" />
+    <p>{offre.adresse}</p>
+    <p>{offre.prix}</p>
+    <p>{offre.surface} m² - {offre.nbChambres} chambres - {offre.nbSdb} salles de bain</p>
+    <a href={`/offres/${offre.id}`}>Voir plus</a>
 </div>
+</li>
