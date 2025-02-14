@@ -7,6 +7,7 @@ import { getOffres } from '../../backend.mjs';
 const offres = await getOffres();
 console.log(offres);
 ---
+
 <Base>
     <h1 class="text-4xl font-bold text-center text-gray-800 my-8">Offres</h1>
         <div x-data="{ showFavorites: false }">
@@ -23,3 +24,8 @@ console.log(offres);
             </div>
         </div>
 </Base>
+<form action="/offres" method="POST">
+    <input type="number" name="minPrix" placeholder="Prix minimum" />
+    <input type="number" name="maxPrix" placeholder="Prix maximum" />
+    <input type="submit" value="Filtrer par prix" />
+</form>
