@@ -9,8 +9,8 @@ let message = '';
 let offres = [];
 if (Astro.request.method === "POST") {
     const data = await Astro.request.formData();
-    const minPrix = parseInt(data.get("minPrix"));
-    const maxPrix = parseInt(data.get("maxPrix"));
+    const minPrix = parseInt(data.get("minPrix") as string);
+    const maxPrix = parseInt(data.get("maxPrix") as string);
 
     if (minPrix > 0 && maxPrix > 0 && maxPrix > minPrix) {
         offres = await filterByPrix(minPrix, maxPrix);

@@ -62,3 +62,7 @@ export async function filterByPrix(prixMin, prixMax) {
         return [];
     }
 }
+
+export async function getAgents() {
+    return await pb.collection('Agent').getFullList();
+}

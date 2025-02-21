@@ -1,0 +1,21 @@
+---
+import { getAgent } from "../../backend.mjs";
+import Base from "../../layouts/Base.astro";
+
+const { id } = Astro.params;
+const agent = await getAgent(id);
+if(!agent){
+   return Astro.redirect('/agents');
+}
+---
+
+<Base titre={agent.nomAgents}>
+    <h2>{agent.nomAgents}</h2>
+    <ul>
+        <li>{agent.Nom}</li>
+        <li>{agent.Nom}</li>
+        <li>{agent.Nom}</li>
+        <li>{agent.Nom}</li>
+        <li>{agent.Nom}</li>
+    </ul>
+</Base>
